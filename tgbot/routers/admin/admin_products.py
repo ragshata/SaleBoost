@@ -487,7 +487,7 @@ async def prod_position_edit_category_open(
         )
     else:
         await call.answer(
-            f"📁 Заказы в категории {get_category.category_name} отсутствуют"
+            f"📁 Orders в категории {get_category.category_name} отсутствуют"
         )
 
 
@@ -1085,7 +1085,7 @@ async def prod_item_add_position_open(
         ded(
             f"""
             <b>📤 Отправьте данные заказов.</b>
-            ❗ Заказы разделяются одной пустой строчкой. Пример:
+            ❗ Orders разделяются одной пустой строчкой. Пример:
             <code>Данные заказа...
 
             Данные заказа...
@@ -1175,7 +1175,7 @@ async def prod_item_delete_swipe(
         )
     else:
         await call.answer(
-            f"❌ Заказы в позиции {get_position.position_name} отсутствуют"
+            f"❌ Orders в позиции {get_position.position_name} отсутствуют"
         )
 
 

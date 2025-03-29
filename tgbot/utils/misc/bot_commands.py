@@ -6,15 +6,15 @@ from tgbot.data.config import get_admins
 
 # Команды для юзеров
 user_commands = [
-    BotCommand(command="start", description="♻️ Перезапустить бота"),
-    BotCommand(command="support", description="🛎 Поддержка"),
+    BotCommand(command="start", description="♻️ Restart the bot"),
+    BotCommand(command="support", description="🛎 Support"),
     BotCommand(command="faq", description="❓ FAQ"),
 ]
 
 # Команды для админов
 admin_commands = [
-    BotCommand(command="start", description="♻️ Перезапустить бота"),
-    BotCommand(command="support", description="🛎 Поддержка"),
+    BotCommand(command="start", description="♻️ Restart the bot"),
+    BotCommand(command="support", description="🛎 Support"),
     BotCommand(command="faq", description="❓ FAQ"),
     BotCommand(command="db", description="📦 Получить Базу Данных"),
     BotCommand(command="log", description="🖨 Получить логи"),

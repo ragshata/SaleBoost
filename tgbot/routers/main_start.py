@@ -71,7 +71,7 @@ async def filter_work_callback(
 async def filter_buy_message(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
-    await message.answer("<b>⛔ Заказы временно отключены.</b>")
+    await message.answer("<b>⛔ Orders временно отключены.</b>")
 
 
 # Фильтр на доступность покупок - колбэк
@@ -81,7 +81,7 @@ async def filter_buy_callback(
 ):
     await state.clear()
 
-    await call.answer("⛔ Заказы временно отключены.", True)
+    await call.answer("⛔ Orders временно отключены.", True)
 
 
 ################################################################################
@@ -107,24 +107,25 @@ async def filter_refill_callback(
 ################################################################################
 #################################### ПРОЧЕЕ ####################################
 # Открытие главного меню
-@router.message(F.text.in_(("🔙 Главное меню", "/start")))
+@router.message(F.text.in_(("🔙 Main menu", "/start")))
 async def main_start(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
     await message.answer(
         ded(
             """
-            🚀 <b> Sale Boost — Ваш помощник в мире фриланса! </b> 🚀
+            🚀 Bee — Your assistant in the world of freelancing! 🚀
 
-            Приветствуем вас! Этот бот поможет вам:
+            Welcome! This bot will help you:
 
-            ➡️ Быстро найти исполнителей для ваших проектов.
-            ➡️ Легко начать зарабатывать, предлагая свои услуги.
+            ➡️ Quickly find performers for your projects.
+            ➡️ Easily start earning money by offering your services.
 
-            Что вы хотите сделать?
+            What do you want to do?
 
-            1️⃣ <b>Стать исполнителем:</b> Регистрация и начало работы — всего несколько шагов!
-            2️⃣ <b>Найти исполнителя:</b> Найдите идеального специалиста для вашей задачи.
+            1️⃣ Become a performer: Registration and start working in just a few steps!
+
+            2️⃣ Find a performer: Find the perfect specialist for your task.
 
         """
         ),
@@ -138,7 +139,7 @@ class RegisterStates(StatesGroup):
     user_number = State()
 
 
-@router.message(F.text.in_(("🧑🏻‍💻 Я исполнитель")))
+@router.message(F.text.in_(("🧑🏻‍💻 I am a performer")))
 async def enter_registr(message: Message, state: FSMContext):
     # Проверяем, существует ли пользователь в базе
     user = Userx.get(user_id=message.from_user.id)
@@ -146,7 +147,7 @@ async def enter_registr(message: Message, state: FSMContext):
         if user.user_number == 0:  # Если имя еще не указано
             # Убираем инлайн-кнопки и начинаем регистрацию
             await message.answer(
-                "📝 Похоже, вы еще не зарегистрированы. Введите свое имя:",
+                "📝It looks like you are not registered yet. Enter your name:",
                 reply_markup=types.ReplyKeyboardRemove()
             )
             await state.set_state(RegisterStates.user_rlname)
@@ -171,7 +172,7 @@ async def set_name(message: Message, state: FSMContext):
     await state.update_data(user_rlname=message.text)
 
     await message.answer(
-        "📝 Введите свою фамилию:",
+        "📝 Enter your last name:",
         reply_markup=types.ReplyKeyboardRemove()
     )
     await state.set_state(RegisterStates.user_surname)
@@ -183,7 +184,7 @@ async def set_surname(message: Message, state: FSMContext):
     await state.update_data(user_surname=message.text)
 
     await message.answer(
-        "📝 Введите свой номер телефона:",
+        "📝 Enter your phone number:",
         reply_markup=types.ReplyKeyboardRemove()
     )
     await state.set_state(RegisterStates.user_number)
@@ -227,10 +228,10 @@ async def set_phone(message: Message, state: FSMContext):
     await message.answer(
         ded(
             f"""
-            ✅ Регистрация завершена!
-            Ваше имя: {user_rlname}
-            Ваша фамилия: {user_surname}
-            Ваш номер телефона: {user_number}
+            ✅ Registration completed!
+            Your name: {user_rlname}
+            Your last name: {user_surname}
+            Your phone number: {user_number}
             """
         ),
         reply_markup=menu_second_start(message.from_user.id),
@@ -242,14 +243,14 @@ class RegisterStatesClients(StatesGroup):
     client_number = State()
 
 
-@router.message(F.text.in_(("🔎 Я заказчик")))
+@router.message(F.text.in_(("🔎 I am the customer")))
 async def enter_registr(message: Message, state: FSMContext):
     client = Clientx.get(client_id=message.from_user.id)
     if client:  # Если пользователь существует
         if client.client_number == 0:  # Если имя еще не указано
             # Убираем инлайн-кнопки и начинаем регистрацию
             await message.answer(
-                "📝 Похоже, вы еще не зарегистрированы. Введите свое имя:",
+                "📝It looks like you are not registered yet. Enter your name:",
                 reply_markup=types.ReplyKeyboardRemove()
             )
             await state.set_state(RegisterStatesClients.client_rlname)
@@ -274,7 +275,7 @@ async def set_name(message: Message, state: FSMContext):
     await state.update_data(client_rlname=message.text)
 
     await message.answer(
-        "📝 Введите свою фамилию:",
+        "📝 Enter your last name:",
         reply_markup=types.ReplyKeyboardRemove()
     )
     await state.set_state(RegisterStatesClients.client_surname)
@@ -286,7 +287,7 @@ async def set_surname(message: Message, state: FSMContext):
     await state.update_data(client_surname=message.text)
 
     await message.answer(
-        "📝 Введите свой номер телефона:",
+        "📝 Enter your phone number:",
         reply_markup=types.ReplyKeyboardRemove()
     )
     await state.set_state(RegisterStatesClients.client_number)
@@ -330,10 +331,10 @@ async def set_phone(message: Message, state: FSMContext):
     await message.answer(
         ded(
             f"""
-            ✅ Регистрация завершена!
-            Ваше имя: {client_rlname}
-            Ваша фамилия: {client_surname}
-            Ваш номер телефона: {client_number}
+            ✅ Registration completed!
+            Your name: {client_rlname}
+            Your last name: {client_surname}
+            Your phone number: {client_number}
             """
         ),reply_markup=menu_second_start_clients(message.from_user.id),
     )

@@ -482,7 +482,7 @@ async def functions_profile_refresh(
     await open_profile_admin(bot, call.from_user.id, get_user)
 
 
-# Заказы пользователя
+# Orders пользователя
 @router.callback_query(F.data.startswith("admin_user_purchases:"))
 async def functions_profile_purchases(
     call: CallbackQuery, bot: Bot, state: FSM, arSession: ARS

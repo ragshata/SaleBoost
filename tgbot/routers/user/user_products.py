@@ -29,7 +29,7 @@ from tgbot.utils.text_functions import position_open_user
 router = Router(name=__name__)
 
 
-# Страницы категорий для Заказы
+# Страницы категорий для Orders
 @router.callback_query(F.data.startswith("buy_category_swipe:"))
 async def user_buy_category_swipe(
     call: CallbackQuery, bot: Bot, state: FSM, arSession: ARS
@@ -72,16 +72,16 @@ async def user_buy_category_open(
             await call.message.edit_text(
                 "<b>🔎 Увы, заказы в данное время отсутствуют.</b>"
             )
-            await call.answer("❗ Заказы были изменены или удалены")
+            await call.answer("❗ Orders были изменены или удалены")
         else:
             await call.answer(
-                f"❕ Заказы в категории {get_category.category_name} отсутствуют",
+                f"❕ Orders в категории {get_category.category_name} отсутствуют",
                 True,
                 cache_time=5,
             )
 
 
-# Страницы позиций для Заказы
+# Страницы позиций для Orders
 @router.callback_query(F.data.startswith("buy_position_swipe:"))
 async def user_buy_position_swipe(
     call: CallbackQuery, bot: Bot, state: FSM, arSession: ARS
@@ -98,7 +98,7 @@ async def user_buy_position_swipe(
     )
 
 
-# Открытие позиции для Заказы
+# Открытие позиции для Orders
 @router.callback_query(F.data.startswith("buy_position_open:"))
 async def user_buy_position_open(
     call: CallbackQuery, bot: Bot, state: FSM, arSession: ARS
@@ -143,7 +143,7 @@ async def user_buy_open(call: CallbackQuery, bot: Bot, state: FSM, arSession: AR
         )
 
 
-# Принятие количества заказов для Заказы
+# Принятие количества заказов для Orders
 @router.message(F.text, StateFilter("here_item_count"))
 async def user_buy_count(message: Message, bot: Bot, state: FSM, arSession: ARS):
     position_id = (await state.get_data())["here_buy_position_id"]
@@ -195,7 +195,7 @@ async def user_buy_confirm(call: CallbackQuery, bot: Bot, state: FSM, arSession:
             ▪️ Заказ: <code>{get_position.position_name}</code>
             ▪️ Цена: <code>{purchase_price}₽</code>
 
-            <b>👤 Профиль исполнителя:</b>
+            <b>👤 Profile исполнителя:</b>
             🆔 Имя: <code>{get_user.user_name} {get_user.user_surname}</code>
             ⭐ Средняя оценка: <code>{user_rating}</code>
             🕰 Регистрация: <code>{convert_date(get_user.user_unix, False, False)}</code>

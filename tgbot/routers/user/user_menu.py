@@ -70,7 +70,7 @@ router = Router(name=__name__)
 
 
 # Открытие заказов
-@router.message(F.text == "🧑🏻‍💻 Заказы")
+@router.message(F.text == "🧑🏻‍💻 Orders")
 async def user_shop(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
@@ -350,7 +350,7 @@ async def prod_position_edit_category_open(
         )
     else:
         await call.answer(
-            f"📁 Заказы в категории {get_category.category_name} отсутствуют"
+            f"📁 Orders в категории {get_category.category_name} отсутствуют"
         )
 
 # Выбор категории с нужной позицией
@@ -370,7 +370,7 @@ async def prod_position_edit_category_open(
         )
     else:
         await call.answer(
-            f"📁 Заказы в категории {get_category.category_name} отсутствуют"
+            f"📁 Orders в категории {get_category.category_name} отсутствуют"
         )
 
 # Выбор категории с нужной позицией
@@ -390,43 +390,43 @@ async def prod_position_edit_category_open(
         )
     else:
         await call.answer(
-            f"📁 Заказы в категории {get_category.category_name} отсутствуют"
+            f"📁 Orders в категории {get_category.category_name} отсутствуют"
         )
 
 
 
-@router.message(F.text == "🗣 Пользовательское соглашение")
+@router.message(F.text == "🗣 User Agreement")
 async def prod_removes(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
     await message.answer(
-        "<b> Пользовательское соглашение</b>\n",
+        "<b> User Agreement</b>\n",
         reply_markup=users_admire(),
     )
 
 
-@router.message(F.text == "👤 Политика конфиденциальности")
+@router.message(F.text == "👤 Privacy Policy")
 async def prod_removes(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
     await message.answer(
-        "<b> Политика конфиденциальности</b>\n",
+        "<b> Privacy Policy</b>\n",
         reply_markup=privacy_policy(),
     )
 
 
-@router.message(F.text == "📚 Помощь")
+@router.message(F.text == "📚 Help")
 async def prod_removes(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
     await message.answer(
-        "<b> Помощь </b>\n",
+        "<b> Help </b>\n",
         reply_markup=knowledge_base(),
     )
 
 
 '''# Открытие профиля
-@router.message(F.text == "💡 Мои заказы")
+@router.message(F.text == "💡 My Orders")
 async def user_profile(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
         "<b>📁 Куда хотите перейте дальше?</b>",
@@ -507,7 +507,7 @@ async def prod_position_edit(message: Message, bot: Bot, state: FSM, arSession: 
         await message.answer("<b>❌ Отсутствуют категории для изменения позиций</b>")
 
 #? Открытие заказов
-@router.message(F.text == "🪄 Мои Заказы")
+@router.message(F.text == "🪄 Мои Orders")
 async def prod_position_edit(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
     
@@ -528,7 +528,7 @@ async def prod_position_edit(message: Message, bot: Bot, state: FSM, arSession: 
 
 
 # Открытие заказов
-@router.message(F.text == "💡 Мои заказы")
+@router.message(F.text == "💡 My Orders")
 async def prod_position_edit(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
     
@@ -867,7 +867,7 @@ async def prod_position_edit(message: Message, bot: Bot, state: FSM, arSession: 
 
 
 # Открытие профиля
-@router.message(F.text == "👤 Профиль")
+@router.message(F.text == "👤 Profile")
 async def user_profile(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
@@ -875,30 +875,30 @@ async def user_profile(message: Message, bot: Bot, state: FSM, arSession: ARS):
 
 
 # Открытие профиля
-@router.message(F.text == "👤 Мой профиль")
+@router.message(F.text == "👤 Мой Profile")
 async def user_profile(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await state.clear()
 
     await open_profile_client(bot, message.from_user.id)
 
 
-@router.message(F.text.in_(("📍 Помощь")))
+@router.message(F.text.in_(("📍 Help")))
 async def client_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
-        "<b>☎️ Не нашли, что искали? Мы поможем! Здесь вы можете найти FAQ или связаться с поддержкой?</b>",
+        "<b>☎️ Didn't find what you were looking for? We'll help! Here you can find FAQ or contact support?</b>",
         reply_markup=menu_help_clients(message.from_user.id),
     )
 
 
-@router.message(F.text.in_(("➕ Помощь")))
+@router.message(F.text.in_(("➕ Help")))
 async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
-        "<b>☎️ Не нашли, что искали? Мы поможем! Здесь вы можете найти FAQ или связаться с поддержкой?</b>",
+        "<b>☎️ Didn't find what you were looking for? We'll help! Here you can find FAQ or contact support?</b>",
         reply_markup=menu_help_users(message.from_user.id),
     )
 
 
-@router.message(F.text.in_(("🔙 Назад")))
+@router.message(F.text.in_(("🔙 Back")))
 async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
         "<b>Мы в главном меню</b>",
@@ -906,7 +906,7 @@ async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     )
 
 
-@router.message(F.text.in_(("◀️ Назад")))
+@router.message(F.text.in_(("◀️ Back")))
 async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
         "<b>Мы в главном меню</b>",
@@ -914,7 +914,7 @@ async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     )
 
 
-@router.message(F.text.in_(("📖 Правовая информация")))
+@router.message(F.text.in_(("📖 Legal information")))
 async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
         "<b>Что вас интересует?</b>",
@@ -922,7 +922,7 @@ async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     )
 
 
-@router.message(F.text.in_(("📗 Правовая информация")))
+@router.message(F.text.in_(("📗 Legal information")))
 async def user_help(message: Message, bot: Bot, state: FSM, arSession: ARS):
     await message.answer(
         "<b>Что вас интересует?</b>",
