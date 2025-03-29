@@ -40,7 +40,7 @@ class IsRefill(BaseFilter):
             return True
 
 
-# Проверка на возможность Заказы 
+# Проверка на возможность Orders 
 class IsBuy(BaseFilter):
     async def __call__(self, update: Union[Message, CallbackQuery], bot: Bot) -> bool:
         get_settings = Settingsx.get()

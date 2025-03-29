@@ -67,9 +67,9 @@ async def settings_turn_buy(call: CallbackQuery, bot: Bot, state: FSM, arSession
     Settingsx.update(status_buy=get_status)
 
     if get_status == "True":
-        send_text = "🟢 Включил Заказы в боте."
+        send_text = "🟢 Включил Orders в боте."
     else:
-        send_text = "🔴 Выключил Заказы в боте."
+        send_text = "🔴 Выключил Orders в боте."
 
     await send_admins(
         bot,

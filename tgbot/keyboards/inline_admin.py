@@ -40,7 +40,7 @@ def profile_search_finl(user_id) -> InlineKeyboardMarkup:
         ikb("💰 Изменить баланс", data=f"admin_user_balance_set:{user_id}"),
         ikb("💰 Выдать баланс", data=f"admin_user_balance_add:{user_id}"),
     ).row(
-        ikb("🧑🏻‍💻 Заказы", data=f"admin_user_purchases:{user_id}"),
+        ikb("🧑🏻‍💻 Orders", data=f"admin_user_purchases:{user_id}"),
         ikb("💌 Отправить СМС", data=f"admin_user_message:{user_id}"),
     ).row(
         ikb("🔄 Обновить", data=f"admin_user_refresh:{user_id}")

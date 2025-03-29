@@ -25,8 +25,8 @@ def menu_frep(user_id) -> ReplyKeyboardMarkup:
 
     if not (user_id in get_admins()):
         keyboard.row(
-            rkb("🧑🏻‍💻 Я исполнитель"),
-        ).row(rkb("🔎 Я заказчик"))
+            rkb("🧑🏻‍💻 I am a performer"),
+        ).row(rkb("🔎 I am the customer"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -35,9 +35,9 @@ def menu_frep(user_id) -> ReplyKeyboardMarkup:
 def menu_second_start_clients(user_id) -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
-    keyboard.row(rkb("📝 Управление заказами"), rkb("💡 Мои заказы")).row(
-        rkb("👤 Мой профиль"), rkb("📍 Помощь")
-    ).row(rkb("📖 Правовая информация"))
+    keyboard.row(rkb("📝 Order Management"), rkb("💡 My orders")).row(
+        rkb("👤 My Profile"), rkb("📍 Help")
+    ).row(rkb("📖 Legal information"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -46,11 +46,11 @@ def menu_second_start(user_id) -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
     keyboard.row(
-        rkb("🧑🏻‍💻 Заказы"),
-        rkb("🪄 Мои Заказы"),
+        rkb("🧑🏻‍💻 Orders"),
+        rkb("🪄 My Orders"),
     ).row(
-        rkb("👤 Профиль"), rkb("➕ Помощь")
-    ).row(rkb("📗 Правовая информация"))
+        rkb("👤 Profile"), rkb("➕ Help")
+    ).row(rkb("📗 Legal information"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -59,9 +59,9 @@ def client_functions_codexk(user_id) -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
     keyboard.row(
-        rkb("🗣 Пользовательское соглашение"),
-        rkb("👤 Политика конфиденциальности"),
-    ).row(rkb("📚 Помощь")).row(rkb("🔙 Назад"))
+        rkb("🗣 User Agreement"),
+        rkb("👤 Privacy Policy"),
+    ).row(rkb("📚 Help")).row(rkb("🔙 Back"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -70,9 +70,9 @@ def user_functions_codexk(user_id) -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
     keyboard.row(
-        rkb("🗣 Пользовательское соглашение"),
-        rkb("👤 Политика конфиденциальности"),
-    ).row(rkb("📚 База знаний")).row(rkb("◀️ Назад"))
+        rkb("🗣 User Agreement"),
+        rkb("👤 Privacy Policy"),
+    ).row(rkb("📚 База знаний")).row(rkb("◀️ Back"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -81,9 +81,9 @@ def menu_help_clients(user_id) -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
     keyboard.row(
-        rkb("🛎 Поддержка"),
+        rkb("🛎 Support"),
         rkb("❓ FAQ"),
-    ).row(rkb("🔙 Назад"))
+    ).row(rkb("🔙 Back"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -92,9 +92,9 @@ def menu_help_users(user_id) -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
     keyboard.row(
-        rkb("🛎 Поддержка"),
+        rkb("🛎 Support"),
         rkb("❓ FAQ"),
-    ).row(rkb("◀️ Назад"))
+    ).row(rkb("◀️ Back"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -103,7 +103,7 @@ def menu_help_users(user_id) -> ReplyKeyboardMarkup:
 def payments_frep() -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
-    keyboard.row(rkb("🔙 Главное меню"), rkb("🖲 Способы пополнений"))
+    keyboard.row(rkb("🔙 Main menu"), rkb("🖲 Способы пополнений"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -115,7 +115,7 @@ def functions_frep() -> ReplyKeyboardMarkup:
     keyboard.row(
         rkb("🔍 Поиск"),
         rkb("📢 Рассылка"),
-    ).row(rkb("🔙 Главное меню"))
+    ).row(rkb("🔙 Main menu"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -127,7 +127,7 @@ def settings_frep() -> ReplyKeyboardMarkup:
     keyboard.row(
         rkb("🖍 Изменить данные"),
         rkb("🕹 Выключатели"),
-    ).row(rkb("🔙 Главное меню"))
+    ).row(rkb("🔙 Main menu"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -139,7 +139,7 @@ def who_get_mail() -> ReplyKeyboardMarkup:
     keyboard.row(
         rkb("🚨 Всем"),
     ).row(rkb("🧑🏻‍💻 Исполнителям"), rkb("💰 Заказчикам")).row(
-        rkb("🔙 Главное меню"),
+        rkb("🔙 Main menu"),
     )
 
     return keyboard.as_markup(resize_keyboard=True)
@@ -153,7 +153,7 @@ def items_frep() -> ReplyKeyboardMarkup:
         rkb("📁 Создать заказ"),
         rkb("🗃 Создать категорию"),
     ).row(rkb("🖍 Изменить заказ"), rkb("🖍 Изменить категорию")).row(
-        rkb("🔙 Главное меню"), rkb("❌ Удаление")
+        rkb("🔙 Main menu"), rkb("❌ Удаление")
     )
 
     return keyboard.as_markup(resize_keyboard=True)
@@ -163,7 +163,7 @@ def items_frep() -> ReplyKeyboardMarkup:
 def items_frep_client() -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
-    keyboard.row(rkb("📁 Создать заказ")).row(rkb("🔙 Назад"))
+    keyboard.row(rkb("📁 Создать заказ")).row(rkb("🔙 Back"))
 
     return keyboard.as_markup(resize_keyboard=True)
 
@@ -172,7 +172,7 @@ def order_category() -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
 
     keyboard.row(rkb("📁 Все заказы"), rkb("👤 В работе")).row(
-        rkb("✅ Выполненные"), rkb("🔙 Назад")
+        rkb("✅ Выполненные"), rkb("🔙 Back")
     )
 
     return keyboard.as_markup(resize_keyboard=True)

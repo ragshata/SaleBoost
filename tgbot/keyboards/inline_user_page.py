@@ -12,7 +12,7 @@ from tgbot.utils.const_functions import ikb
 
 # fp - flip page
 
-#Заказы клиента
+#Orders клиента
 def prod_item_category_client(remover) -> InlineKeyboardMarkup:
     keyboard = InlineKeyboardBuilder()
 

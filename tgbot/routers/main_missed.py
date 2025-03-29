@@ -39,8 +39,8 @@ async def main_missed_message(message: Message, bot: Bot, state: FSM, arSession:
     await message.answer(
         ded(
             f"""
-            ♦️ Неизвестная команда.
-            ♦️ Введите /start
+            ♦️ Unknown command.
+            ♦️ Enter /start
         """
         ),
     )

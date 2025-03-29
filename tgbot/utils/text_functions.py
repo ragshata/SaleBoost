@@ -43,7 +43,7 @@ async def open_profile_user(bot: Bot, user_id: Union[int, str]):
 
     send_text = ded(
         f"""
-        <b>👤 Ваш профиль:</b>
+        <b>👤 Ваш Profile:</b>
         ➖➖➖➖➖➖➖➖➖➖
         🆔 <code>{get_user.user_rlname}</code> <code>{get_user.user_surname}</code>
         💰 Баланс: <code>{get_user.user_balance}₽</code>
@@ -70,7 +70,7 @@ async def open_profile_client(bot: Bot, user_id: Union[int, str]):
     #!🧑🏻‍💻 Дано заказов: <code>{count_items}шт</code>
     send_text = ded(
         f"""
-        <b>👤 Ваш профиль:</b>
+        <b>👤 Ваш Profile:</b>
         ➖➖➖➖➖➖➖➖➖➖
         🆔 <code>{get_client.client_rlname}</code> <code>{get_client.client_surname}</code>
         💰 Баланс: <code>{get_client.client_balance}₽</code>
@@ -132,7 +132,7 @@ async def open_profile_admin(bot: Bot, user_id: int, get_user: UserModel):
 
     send_text = ded(
         f"""
-        <b>👤 Профиль пользователя: <a href='tg://user?id={get_user.user_id}'>{get_user.user_name}</a></b>
+        <b>👤 Profile пользователя: <a href='tg://user?id={get_user.user_id}'>{get_user.user_name}</a></b>
         ➖➖➖➖➖➖➖➖➖➖
         ▪️ ID: <code>{get_user.user_id}</code>
         ▪️ Логин: <b>@{get_user.user_login}</b>
@@ -161,7 +161,7 @@ async def open_profile_admin_client(bot: Bot, user_id: int, get_user: ClientMode
 
     send_text = ded(
         f"""
-        <b>👤 Профиль пользователя: <a href='tg://user?id={get_user.client_id}'>{get_user.client_name}</a></b>
+        <b>👤 Profile пользователя: <a href='tg://user?id={get_user.client_id}'>{get_user.client_name}</a></b>
         ➖➖➖➖➖➖➖➖➖➖
         ▪️ ID: <code>{get_user.client_id}</code>
         ▪️ Логин: <b>@{get_user.client_login}</b>
@@ -235,7 +235,7 @@ async def refill_open_admin_client(bot: Bot, user_id: int, get_refill: RefillMod
     )
 
 
-# Открытие Заказы админом
+# Открытие Orders админом
 async def purchase_open_admin(
     bot: Bot, arSession: ARS, user_id: int, get_purchase: PurchasesModel
 ):
@@ -254,9 +254,9 @@ async def purchase_open_admin(
         ▪️ Пользователь: <a href='tg://user?id={get_user.user_id}'>{get_user.user_name}</a> | <code>{get_user.user_id}</code>
         ▪️ Название заказа: <code>{get_purchase.purchase_position_name}</code>
         ▪️ Цена заказа: <code>{get_purchase.purchase_price_one}₽</code>
-        ▪️ Баланс до Заказы: <code>{get_purchase.user_balance_before}₽</code>
-        ▪️ Баланс после Заказы: <code>{get_purchase.user_balance_after}₽</code>
-        ▪️ Дата Заказы: <code>{convert_date(get_purchase.purchase_unix)}</code>
+        ▪️ Баланс до Orders: <code>{get_purchase.user_balance_before}₽</code>
+        ▪️ Баланс после Orders: <code>{get_purchase.user_balance_after}₽</code>
+        ▪️ Дата Orders: <code>{convert_date(get_purchase.purchase_unix)}</code>
     """
     )
 
@@ -266,7 +266,7 @@ async def purchase_open_admin(
     )
 
 
-# Открытие Заказы админом
+# Открытие Orders админом
 async def purchase_open_admin(
     bot: Bot, arSession: ARS, user_id: int, get_purchase: PurchasesModel
 ):
@@ -285,9 +285,9 @@ async def purchase_open_admin(
         ▪️ Пользователь: <a href='tg://user?id={get_user.user_id}'>{get_user.user_name}</a> | <code>{get_user.user_id}</code>
         ▪️ Название заказа: <code>{get_purchase.purchase_position_name}</code>
         ▪️ Цена заказа: <code>{get_purchase.purchase_price_one}₽</code>
-        ▪️ Баланс до Заказы: <code>{get_purchase.user_balance_before}₽</code>
-        ▪️ Баланс после Заказы: <code>{get_purchase.user_balance_after}₽</code>
-        ▪️ Дата Заказы: <code>{convert_date(get_purchase.purchase_unix)}</code>
+        ▪️ Баланс до Orders: <code>{get_purchase.user_balance_before}₽</code>
+        ▪️ Баланс после Orders: <code>{get_purchase.user_balance_after}₽</code>
+        ▪️ Дата Orders: <code>{convert_date(get_purchase.purchase_unix)}</code>
     """
     )
 
@@ -559,7 +559,7 @@ def get_statistics() -> str:
         ┗ Юзеров за Всё время: <code>{users_all}</code>
 
         <b>💰 Средства</b>
-        ┣‒ Заказы (кол-во, сумма)
+        ┣‒ Orders (кол-во, сумма)
         ┣ За День: <code>{profit_count_day}шт</code> - <code>{profit_amount_day}₽</code>
         ┣ За Неделю: <code>{profit_count_week}шт</code> - <code>{profit_amount_week}₽</code>
         ┣ За Месяц: <code>{profit_count_month}шт</code> - <code>{profit_amount_month}₽</code>
@@ -575,7 +575,7 @@ def get_statistics() -> str:
         ┣ Средств выдано: <code>{users_money_give}₽</code>
         ┗ Средств в системе: <code>{users_money_have}₽</code>
 
-        <b>🧑🏻‍💻 Заказы</b>
+        <b>🧑🏻‍💻 Orders</b>
         ┣ Позиций: <code>{len(get_positions)}шт</code>
         ┗ Категорий: <code>{len(get_categories)}шт</code>
    """
